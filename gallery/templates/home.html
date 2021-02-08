@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <div class='gallery'>
+    <section>
+      <form enctype='multipart/form-data' method='POST'>
+        <input type='file' name='file'/>
+        <input type='text' name='title' value='enter title'/>
+        <input type='submit' name='submit' value='Submit'/>
+      </form>
+    </section>
+    <section>
+      {% for image in images %}
+        <article>
+          <section>
+            {{ image.title }}
+          </section>
+          <section>
+            <img src='/uploads/{{ image.filename }}' />
+          </section>
+        </article>
+      {% endfor %}
+    </section>
+  </div>
+{% endblock %}
